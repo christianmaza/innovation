@@ -1,0 +1,111 @@
+/*tag selectors*/
+
+body{
+    background-color: rgb(230, 230, 230) !important;
+}
+
+li{
+    list-style: none;
+    margin: 3rem;
+}
+/*end tag selectors*/
+
+
+/*svg's*/
+.bi-chevron-up{
+    cursor: pointer;
+    fill: black;
+    transition: fill 0.3s ease-in-out;
+}
+
+.bi-chevron-down{
+    cursor: pointer;
+    fill: black;
+    transition: fill 0.3s ease-in-out;
+}
+
+.bi-chevron-down:hover, .bi-chevron-up:hover{
+    fill: rgb(47, 103, 255);
+    transition: fill 0.3s ease-in-out;
+}
+/*end svg's*/
+
+/*hero*/
+.hero{
+    padding-top: 12%;
+    padding-bottom: 8%;
+    padding-left: 10%;
+    background-color: rgb(164, 84, 238);
+
+}
+/*end hero*/
+
+.heroLabel{
+    width: 75%;
+    font-family: Ubuntu, Helvetica, sans-serif;
+    font-size: 5.7rem;
+    margin-bottom: 1.5rem;
+    color:white;
+}
+
+/*outer-card*/
+.homeCardRow{
+    height: 100%;
+}
+
+.homeCardWrapper{
+    height: 100%;
+}
+
+.cardColumn{
+    padding-top: 3%;
+}
+
+.homeCard{
+    height: 180px;
+    background: rgb(255, 255, 255) !important;
+    border-radius: 8px;
+}
+/*end outer-card*/
+
+/*inner-card*/
+.cardImage{
+    height: 90%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    display: inline-block;
+    border-radius: 5px;
+}
+.cardTitle{
+    font-size: 2.2rem;
+    margin-bottom: 3%;
+}
+.cardDescription{
+    font-size: .8rem;
+}
+
+.voteWrapper{
+    display: inline-block;
+    width: 100px;
+    margin-left: 8%;
+    margin-top: 34%;
+}
+
+.voteArrows{
+    padding-left: 3%;
+    
+}
+
+.upArrowButton{
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.downArrowButton{
+    margin-left: 12px;
+    display: inline-block;
+}
+/*end inner-card*/
