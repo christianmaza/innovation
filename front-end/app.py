@@ -18,9 +18,8 @@ def posts():
 
     data = []
 
-    # render new cards
+    # render new cards from the card template
     for i in range(start, end + 1):
         data.append(render_template("card.html"))
 
-    # create an artificial delay
     return jsonify(data)

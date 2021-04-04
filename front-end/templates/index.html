@@ -6,8 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Smoney</title>
+
     <link rel="stylesheet" href="../static/css/main.css">
-    <script src="../static/js/main.js" defer></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,10 +18,66 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+    <script src="../static/js/infiniteScollHelper.js" defer></script>
+    <script src="../static/js/sidebar.js" defer></script>
+    <script src="../static/js/richTextEditor.js" defer></script>
 </head>
 
 <body>
+    <div class="overlay"></div>
     <div class="hero">
+        <div class="sideWrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3 class="quickPostHeader">QUICK POST</h3>
+                    <hr class="mt-3 mb-5 w-75 mx-auto">
+                    <div id="form-container" class="container">
+                        <form>
+                            <div class="row mb-4">
+                                <div class="col-xs-8">
+                                    <div>
+                                        <input class="postForm mx-auto" name="display_name" type="text"
+                                            placeholder="Author">
+                                    </div>
+                                    <div>
+                                        <input class="postForm mx-auto" name="location" type="text" placeholder="Title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-auto quillBox">
+                                <input name="about" type="hidden">
+                                <div id="editor-container">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary w-50 mx-auto mt-5" type="submit">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="button" id="dismiss">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="rgb(255, 255, 255)"
+                            class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
         <h1 class="heroLabel">Sm<span><svg xmlns="http://www.w3.org/2000/svg" height="80" width="80"
                     viewBox="0 0 193.9 193.9">
                     <style>
@@ -42,8 +101,20 @@
                         d="M81.1 47.7c-16.1-9.4-33.2-19.7-56.7-33.5 -4.3 5.4-7.9 13.8-1.6 19C37.9 45.5 54.7 56.4 65.6 61.3c10.3 4.6 24.8 6.5 50.3 13.4 -24.4-2.8-38.3-6.1-50.3-3.9C42.1 75.3 27 96.2 30.8 113.4c2.8 2.8 7.5 4 11.3 3.5 0 0 0-0.1 0-0.1 0-16.2 13.1-29.3 29.3-29.3 16.2 0 29.3 13.1 29.3 29.3 0 16.2-13.1 29.3-29.3 29.3 -14.9 0-27-11.1-28.9-25.4 -5.2-2.6-20.4-0.3-18.1 6.9 16.2 51.1 71.6 35.3 107.3 66.3l42.8-42.8c-16.4-19.5-20-46.2-38-66C122.5 69.7 99.9 58.6 81.1 47.7z"
                         class="w" />
                 </svg></span>ney</h1>
-        <p class="lead heroSublabel">The easiest way to make money from posting.</p>
+        <p class="lead heroSubLabel">The easiest way to make money from posting.</p>
     </div>
+    <button type="button" id="sidebarCollapse" class="postButton">
+        <div class="postButtonText">Post</div>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="rgb(255,255,255)"
+                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+            </svg>
+        </span>
+    </button>
     <div class="container-fluid pb-5 cardContainer">
         <div class="row">
             <div class="col-2"></div>

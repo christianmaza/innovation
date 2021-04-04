@@ -1,6 +1,7 @@
+//initial count is one
 let counter = 1;
+//helper will load 15 cards when scrolled to the bottom
 const quantity = 15;
-let hello = "hello";
 
 document.addEventListener('DOMContentLoaded', load());
 
@@ -28,9 +29,9 @@ function addPost(contents) {
     //create li Element
     const post = document.createElement("li");
 
-    //add the class name "homeCardWrapper" and contents to the newly created post
-    //post.className = "homeCardWrapper";
+    //post element gets the returned JSON data
     post.innerHTML = contents;
 
+    //append post to the unorderd list
     document.querySelector("#posts").append(post);
 }
